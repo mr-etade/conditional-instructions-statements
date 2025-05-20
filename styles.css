@@ -1,0 +1,236 @@
+:root {
+    --navy-blue: #001f3f;
+    --gold: #FFD700;
+    --light-gold: #fff3cd;
+    --light-navy: #2c3e50;
+    --white: #ffffff;
+    --gray: #f8f9fa;
+    --dark-gray: #343a40;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--gray);
+    color: var(--dark-gray);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--navy-blue);
+    color: white;
+    padding: 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.school-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--gold);
+}
+
+.school-header h2 {
+    margin: 0.5rem 0 0;
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: var(--gold);
+}
+
+.container {
+    display: flex;
+    min-height: calc(100vh - 120px);
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--light-navy);
+    padding: 1rem 0;
+    color: var(--white);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.sidebar li:hover {
+    background-color: rgba(255, 215, 0, 0.1);
+    border-left: 4px solid var(--gold);
+}
+
+.sidebar li.active {
+    background-color: rgba(255, 215, 0, 0.2);
+    border-left: 4px solid var(--gold);
+    font-weight: bold;
+}
+
+main {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+section {
+    display: none;
+    margin-bottom: 2rem;
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section.active {
+    display: block;
+}
+
+h2, h3 {
+    color: var(--navy-blue);
+    margin-top: 0;
+}
+
+.theory {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: var(--light-gold);
+    border-left: 4px solid var(--gold);
+    border-radius: 4px;
+}
+
+.syntax {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 4px;
+    font-family: monospace;
+    overflow-x: auto;
+    border-left: 3px solid var(--navy-blue);
+}
+
+.interactive {
+    margin-top: 1.5rem;
+}
+
+.code-editor {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+.controls {
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0.8rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+.controls label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+button {
+    background-color: var(--navy-blue);
+    color: var(--white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--light-navy);
+}
+
+.output {
+    min-height: 50px;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    margin-top: 1rem;
+}
+
+.visualization {
+    height: 150px;
+    margin: 1rem 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1rem;
+    background-color: var(--white);
+}
+
+.operator-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.operator-card {
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-top: 3px solid var(--gold);
+}
+
+.operator-card h3 {
+    margin-top: 0;
+    color: var(--navy-blue);
+}
+
+.operator-card ul {
+    padding-left: 1.2rem;
+}
+
+.exercise {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--gold);
+}
+
+footer {
+    background-color: var(--navy-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+    }
+    
+    .operator-grid {
+        grid-template-columns: 1fr;
+    }
+}

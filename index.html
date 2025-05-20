@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Statements Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+</head>
+<body>
+    <header>
+        <div class="school-header">
+            <h1>CMN115/CBS105: Introduction to Programming</h1>
+            <h2>Week 13 - Conditional Instructions/Statements</h2>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li class="active" data-section="simple-if">Simple if</li>
+                <li data-section="if-else">if-else</li>
+                <li data-section="elif">if-elif-else</li>
+                <li data-section="nested">Nested Conditionals</li>
+                <li data-section="operators">Comparison & Logical Ops</li>
+                <li data-section="dictionary">Dictionary Mapping</li>
+            </ul>
+        </nav>
+
+        <main>
+            <!-- Simple if Section -->
+            <section id="simple-if" class="active">
+                <h2>Simple if Statement</h2>
+                <div class="theory">
+                    <p>Executes code only when condition is True</p>
+                    <pre class="syntax">if condition:
+    # code block when True</pre>
+                </div>
+                <div class="interactive">
+                    <div class="code-editor" id="editor-simple-if">age = 20
+
+if age >= 18:
+    print("You are eligible to vote")
+    print("Please register if you haven't already")
+
+print("Program continues here")</div>
+                    <button onclick="runCode('editor-simple-if', 'output-simple-if')">Run Code</button>
+                    <div class="output" id="output-simple-if"></div>
+                </div>
+            </section>
+
+            <!-- if-else Section -->
+            <section id="if-else">
+                <h2>if-else Statement</h2>
+                <div class="theory">
+                    <p>Chooses between two paths</p>
+                    <pre class="syntax">if condition:
+    # code when True
+else:
+    # code when False</pre>
+                </div>
+                <div class="interactive">
+                    <div class="controls">
+                        <label>Temperature: <input type="number" id="temp-input" value="15"></label>
+                        <button onclick="updateIfElse()">Update</button>
+                    </div>
+                    <div class="code-editor" id="editor-if-else">temperature = 15
+
+if temperature > 20:
+    print("It's warm outside")
+    print("Wear light clothes")
+else:
+    print("It's cool outside")
+    print("Consider wearing a jacket")
+
+print("Enjoy your day!")</div>
+                    <div class="output" id="output-if-else"></div>
+                </div>
+            </section>
+
+            <!-- if-elif-else Section -->
+            <section id="elif">
+                <h2>if-elif-else Statement</h2>
+                <div class="theory">
+                    <p>Handles multiple conditions in sequence</p>
+                    <pre class="syntax">if condition1:
+    # code 1
+elif condition2:
+    # code 2
+else:
+    # default code</pre>
+                </div>
+                <div class="interactive">
+                    <div class="controls">
+                        <label>Score: <input type="number" id="score-input" value="85" min="0" max="100"></label>
+                        <button onclick="updateElif()">Update</button>
+                    </div>
+                    <div class="code-editor" id="editor-elif">score = 85
+
+if score >= 90:
+    print("Grade: A")
+elif score >= 80:
+    print("Grade: B")
+elif score >= 70:
+    print("Grade: C")
+elif score >= 60:
+    print("Grade: D")
+else:
+    print("Grade: F")</div>
+                    <div class="output" id="output-elif"></div>
+                </div>
+            </section>
+
+            <!-- Nested Section -->
+            <section id="nested">
+                <h2>Nested Conditionals</h2>
+                <div class="theory">
+                    <p>Conditions within conditions for complex logic</p>
+                    <pre class="syntax">if outer_condition:
+    if inner_condition:
+        # both True
+    else:
+        # outer True, inner False
+else:
+    # outer False</pre>
+                </div>
+                <div class="interactive">
+                    <div class="controls">
+                        <label>
+                            <input type="checkbox" id="weekend-check" checked> Is weekend?
+                        </label>
+                        <label>
+                            Weather: 
+                            <select id="weather-select">
+                                <option value="sunny">Sunny</option>
+                                <option value="rainy">Rainy</option>
+                                <option value="cloudy">Cloudy</option>
+                            </select>
+                        </label>
+                        <button onclick="updateNested()">Update</button>
+                    </div>
+                    <div class="code-editor" id="editor-nested">is_weekend = True
+weather = "sunny"
+
+if is_weekend:
+    if weather == "sunny":
+        print("Go to the beach")
+        print("Don't forget sunscreen!")
+    else:
+        print("Watch a movie at home")
+        print("Make some popcorn")
+else:
+    if weather == "sunny":
+        print("Go to work but enjoy the weather during breaks")
+    else:
+        print("Go to work and stay cozy inside")</div>
+                    <div class="output" id="output-nested"></div>
+                </div>
+            </section>
+
+            <!-- Operators Section -->
+            <section id="operators">
+                <h2>Comparison & Logical Operators</h2>
+                <div class="theory">
+                    <div class="operator-grid">
+                        <div class="operator-card">
+                            <h3>Comparison</h3>
+                            <ul>
+                                <li>== (equal)</li>
+                                <li>!= (not equal)</li>
+                                <li>> (greater than)</li>
+                                <li>< (less than)</li>
+                                <li>>= (greater or equal)</li>
+                                <li><= (less or equal)</li>
+                            </ul>
+                        </div>
+                        <div class="operator-card">
+                            <h3>Logical</h3>
+                            <ul>
+                                <li>and (both True)</li>
+                                <li>or (either True)</li>
+                                <li>not (inverts)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="interactive">
+                    <div class="controls">
+                        <label>A: <input type="number" id="a-input" value="10"></label>
+                        <label>B: <input type="number" id="b-input" value="20"></label>
+                        <button onclick="updateOperators()">Compare</button>
+                    </div>
+                    <div class="output" id="output-operators"></div>
+                    
+                    <h3>Logical Operators Playground</h3>
+                    <div class="controls">
+                        <label>Age: <input type="number" id="logic-age" value="25"></label>
+                        <label>Income: <input type="number" id="logic-income" value="50000"></label>
+                        <label><input type="checkbox" id="logic-license" checked> Has License</label>
+                        <button onclick="updateLogical()">Evaluate</button>
+                    </div>
+                    <div class="output" id="output-logical"></div>
+                </div>
+            </section>
+
+            <!-- Dictionary Section -->
+            <section id="dictionary">
+                <h2>Dictionary Mapping</h2>
+                <div class="theory">
+                    <p>Alternative to switch-case using dictionaries</p>
+                    <pre class="syntax">operations = {
+    'add': add_func,
+    'subtract': subtract_func
+}
+result = operations[choice](x, y)</pre>
+                </div>
+                <div class="interactive">
+                    <div class="controls">
+                        <label>Operation: 
+                            <select id="dict-op">
+                                <option value="add">Add</option>
+                                <option value="subtract">Subtract</option>
+                                <option value="multiply">Multiply</option>
+                            </select>
+                        </label>
+                        <label>X: <input type="number" id="dict-x" value="10"></label>
+                        <label>Y: <input type="number" id="dict-y" value="5"></label>
+                        <button onclick="updateDictionary()">Calculate</button>
+                    </div>
+                    <div class="code-editor" id="editor-dict">def calculate_add(x, y):
+    return x + y
+
+def calculate_subtract(x, y):
+    return x - y
+
+def calculate_multiply(x, y):
+    return x * y
+
+def calculate_unknown():
+    return "Unknown operation"
+
+operations = {
+    'add': calculate_add,
+    'subtract': calculate_subtract,
+    'multiply': calculate_multiply
+}
+
+operation = 'add'
+x, y = 10, 5
+
+result = operations.get(operation, calculate_unknown)(x, y)
+print(f"Result: {result}")</div>
+                    <div class="output" id="output-dict"></div>
+                </div>
+            </section>
+    <footer>
+        <p>© 2025 Western Pacific University - IT Academic Department</p>
+        <p>Instructor: Mr. Eremas Tade</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
